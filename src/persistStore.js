@@ -29,7 +29,7 @@ export default function persistStore (store, config = {}, onComplete) {
 
         store.dispatch(rehydrateAction(restoredState, err))
         complete(err, restoredState)
-      })
+      }, store)
     })
   } else genericSetImmediate(complete)
 
