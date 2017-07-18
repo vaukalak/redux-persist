@@ -9,9 +9,8 @@
   "scripts": {
     "test": "standard 'src/**/*.js' 'test/**/*.js' && BABEL_ENV=commonjs ava --esnext",
     "test:watch": "npm test -- --watch",
-    "copy-types": "cp -r type-definitions/ lib/ && cp -r type-definitions/ es/",
     "clean": "rimraf lib dist es",
-    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min && npm run copy-types",
+    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development rollup -c -i src/index.js -o dist/redux-persist.js",
